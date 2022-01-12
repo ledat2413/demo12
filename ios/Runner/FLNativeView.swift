@@ -29,6 +29,7 @@ class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
 
 class FLNativeView: NSObject, FlutterPlatformView {
     private var _view: UIView
+    
     private var messenger: FlutterBinaryMessenger
     
     private var textUpdate: String = ""
@@ -43,9 +44,6 @@ class FLNativeView: NSObject, FlutterPlatformView {
         self.messenger = messenger
         self.textUpdate = args as! String
         super.init()
-        
-        // iOS views can be created here
-        self.createNativeView(view: _view)
         self.createChannel(binaryMessenger: messenger)
         
     }
@@ -56,18 +54,7 @@ class FLNativeView: NSObject, FlutterPlatformView {
     
     func createChannel(binaryMessenger messenger: FlutterBinaryMessenger){
         let channel = FlutterMethodChannel(name: "methodDat", binaryMessenger: messenger )
-        
-        //        channel.setMethodCallHandler({
-        //            (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
-        //            guard call.method == "getText" else {
-        //                result(FlutterMethodNotImplemented)
-        //                return
-        //            }
-        //            DispatchQueue.main.async {
-        //                self.textUpdate = call.arguments as! String
-        //            }
-        //
-        //        })
+
     }
     
     

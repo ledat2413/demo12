@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_second/controller.dart';
@@ -38,7 +40,7 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
 
   @override
   Widget build(BuildContext context) {
-    const String viewType = 'native-ios-view';
+    const String viewType = 'native-view';
     // const String viewType = 'native-ios';
 
     return Column(
@@ -52,12 +54,14 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
               style: const TextStyle(color: Colors.red, fontSize: 18)),
         ),
         Expanded(
-          child: UiKitView(
-            viewType: viewType,
-            layoutDirection: TextDirection.ltr,
-            creationParams: creationParams,
-            creationParamsCodec: const StandardMessageCodec(),
-          ),
+          child: Platform.isIOS
+              ? UiKitView(
+                  viewType: viewType,
+                  layoutDirection: TextDirection.ltr,
+                  creationParams: creationParams,
+                  creationParamsCodec: const StandardMessageCodec(),
+                )
+              : AndroidView(viewType: viewType),
         ),
       ],
     );
