@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
-		4F25CE46278E810B00845F23 /* FLView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F25CE45278E810B00845F23 /* FLView.xib */; };
 		4F25CE4A278E825A00845F23 /* FLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25CE49278E825A00845F23 /* FLView.swift */; };
+		4F25CE50278EB49800845F23 /* FLView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F25CE4F278EB49800845F23 /* FLView.xib */; };
+		4F25CE52278EB51300845F23 /* BaseCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25CE51278EB51300845F23 /* BaseCustomView.swift */; };
+		4F25CE54278EB8D100845F23 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F25CE53278EB8D100845F23 /* UIStoryboard.storyboard */; };
+		4F25CE56278EB8F800845F23 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25CE55278EB8F800845F23 /* DemoViewController.swift */; };
 		4F409610278C180C007CE9CE /* NativePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F40960F278C180C007CE9CE /* NativePlugin.swift */; };
 		4FA74AB32786E4760024BC27 /* FLNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA74AB22786E4760024BC27 /* FLNativeView.swift */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
@@ -36,8 +39,11 @@
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
-		4F25CE45278E810B00845F23 /* FLView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FLView.xib; sourceTree = "<group>"; };
 		4F25CE49278E825A00845F23 /* FLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLView.swift; sourceTree = "<group>"; };
+		4F25CE4F278EB49800845F23 /* FLView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FLView.xib; sourceTree = "<group>"; };
+		4F25CE51278EB51300845F23 /* BaseCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCustomView.swift; sourceTree = "<group>"; };
+		4F25CE53278EB8D100845F23 /* UIStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIStoryboard.storyboard; sourceTree = "<group>"; };
+		4F25CE55278EB8F800845F23 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		4F40960F278C180C007CE9CE /* NativePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativePlugin.swift; sourceTree = "<group>"; };
 		4FA74AB22786E4760024BC27 /* FLNativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLNativeView.swift; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -104,8 +110,11 @@
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
 				4FA74AB22786E4760024BC27 /* FLNativeView.swift */,
 				4F40960F278C180C007CE9CE /* NativePlugin.swift */,
-				4F25CE45278E810B00845F23 /* FLView.xib */,
 				4F25CE49278E825A00845F23 /* FLView.swift */,
+				4F25CE4F278EB49800845F23 /* FLView.xib */,
+				4F25CE51278EB51300845F23 /* BaseCustomView.swift */,
+				4F25CE53278EB8D100845F23 /* UIStoryboard.storyboard */,
+				4F25CE55278EB8F800845F23 /* DemoViewController.swift */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -172,8 +181,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
-				4F25CE46278E810B00845F23 /* FLView.xib in Resources */,
+				4F25CE54278EB8D100845F23 /* UIStoryboard.storyboard in Resources */,
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
+				4F25CE50278EB49800845F23 /* FLView.xib in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
 			);
@@ -219,7 +229,9 @@
 			files = (
 				4F25CE4A278E825A00845F23 /* FLView.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
+				4F25CE52278EB51300845F23 /* BaseCustomView.swift in Sources */,
 				4FA74AB32786E4760024BC27 /* FLNativeView.swift in Sources */,
+				4F25CE56278EB8F800845F23 /* DemoViewController.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 				4F409610278C180C007CE9CE /* NativePlugin.swift in Sources */,
 			);

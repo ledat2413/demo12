@@ -38,6 +38,10 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
     }
   }
 
+  moveToiOSScreen() {
+    _channel?.invokeMethod("moveToNaviteScreen", "");
+  }
+
   @override
   Widget build(BuildContext context) {
     const String viewType = 'native-view';
@@ -50,8 +54,20 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
           height: 200,
           width: double.infinity,
           alignment: Alignment.center,
-          child: Text(_text,
-              style: const TextStyle(color: Colors.red, fontSize: 18)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(_text,
+                  style: const TextStyle(color: Colors.red, fontSize: 18)),
+              TextButton(
+                  onPressed: () {
+                    moveToiOSScreen();
+                  },
+                  child: const Text('Move to Native Screen',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)))
+            ],
+          ),
         ),
         Expanded(
           child: Platform.isIOS
