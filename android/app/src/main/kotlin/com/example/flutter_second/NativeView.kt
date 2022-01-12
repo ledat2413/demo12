@@ -11,7 +11,7 @@ import io.flutter.plugin.platform.PlatformView
 internal class NativeView(context: Context, id: Int, creationParams: Map<String?, Any?>?, flutterEngine: FlutterEngine) : PlatformView {
     private val textView: TextView = TextView(context)
     private val button: Button = Button(context)
-    private val CHANNEL = "aaa"
+    private val CHANNEL = "methodDat"
     override fun getView(): View {
         return button
     }
@@ -22,7 +22,7 @@ internal class NativeView(context: Context, id: Int, creationParams: Map<String?
     init {
         val text = "Android Button"
 
-        MethodChannel(flutterEngine?.dartExecutor.binaryMessenger, CHANNEL)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
                 .setMethodCallHandler { call, result ->
                     run {
                         when (call.method) {
@@ -38,7 +38,7 @@ internal class NativeView(context: Context, id: Int, creationParams: Map<String?
         button.textSize = 52f
 
         button.setOnClickListener {
-            MethodChannel(flutterEngine?.dartExecutor.binaryMessenger, CHANNEL)
+            MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
                     .invokeMethod("sendFromNative", "Text from Android")
         }
     }

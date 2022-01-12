@@ -8,6 +8,7 @@ class NativeViewWidget extends StatefulWidget {
   const NativeViewWidget({
     Key? key,
   }) : super(key: key);
+
   @override
   _NativeViewWidgetState createState() => _NativeViewWidgetState();
 }
@@ -77,7 +78,11 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
                   creationParams: creationParams,
                   creationParamsCodec: const StandardMessageCodec(),
                 )
-              : AndroidView(viewType: viewType),
+              : AndroidView(
+                  viewType: viewType,
+                  layoutDirection: TextDirection.ltr,
+                  creationParams: creationParams,
+                  creationParamsCodec: const StandardMessageCodec()),
         ),
       ],
     );
