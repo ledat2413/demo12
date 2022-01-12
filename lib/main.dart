@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_second/%20magic_view.dart';
-import 'package:flutter_second/controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: Center(
+        body: const Center(
           child: NativeViewWidget(),
         ));
   }
