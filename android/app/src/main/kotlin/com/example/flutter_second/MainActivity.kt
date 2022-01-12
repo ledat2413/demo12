@@ -12,14 +12,14 @@ class MainActivity: FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
          mc = MethodChannel(flutterEngine.dartExecutor.binaryMessenger,CHANNEL)
-//        mc?.setMethodCallHandler { call, result ->
-//            run {
-//
-////                if (call.method.equals("sendFromNative")) {
-////                    result.success("From Android");
-////                }
-//            }
-//        }
+        mc?.setMethodCallHandler { call, result ->
+            run {
+
+                if (call.method.equals("sendFromNative")) {
+                    result.success("From Android");
+                }
+            }
+        }
 
         flutterEngine
                 .platformViewsController

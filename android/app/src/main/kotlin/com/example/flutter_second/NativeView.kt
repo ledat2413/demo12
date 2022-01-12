@@ -1,6 +1,7 @@
 package com.example.flutter_second
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -12,8 +13,10 @@ internal class NativeView(context: Context, id: Int, creationParams: Map<String?
     private val textView: TextView = TextView(context)
     private val button: Button = Button(context)
     private val CHANNEL = "methodDat"
-    override fun getView(): View {
-        return button
+    private var view:View? = null
+    override fun getView(): View? {
+
+        return view
     }
 
     override fun dispose() {}
@@ -21,7 +24,7 @@ internal class NativeView(context: Context, id: Int, creationParams: Map<String?
 
     init {
         val text = "Android Button"
-
+        view = LayoutInflater.from(context).inflate(R.layout.android_view,null)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
                 .setMethodCallHandler { call, result ->
                     run {
