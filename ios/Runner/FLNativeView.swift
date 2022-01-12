@@ -28,7 +28,7 @@ class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
 }
 
 class FLNativeView: NSObject, FlutterPlatformView {
-    private var _view: UIView
+    private var _view: FLView
     
     private var messenger: FlutterBinaryMessenger
     
@@ -40,11 +40,12 @@ class FLNativeView: NSObject, FlutterPlatformView {
         arguments args: Any?,
         binaryMessenger messenger: FlutterBinaryMessenger
     ) {
-        _view = UIView()
+        _view = FLView()
         self.messenger = messenger
         self.textUpdate = args as! String
         super.init()
         self.createChannel(binaryMessenger: messenger)
+//        createNativeView(view: _view)
         
     }
     
@@ -57,11 +58,11 @@ class FLNativeView: NSObject, FlutterPlatformView {
 
     }
     
-    
-    
+
     func createNativeView(view _view: UIView){
-        let flView = FLView()
-        _view.addSubview(flView)
+//        let flView = FLView()
+//
+//        _view.addSubview(flView)
         //        _view.backgroundColor = UIColor.white
         //        let nativeLabel = UILabel()
         //        nativeLabel.text = textUpdate

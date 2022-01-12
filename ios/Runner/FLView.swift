@@ -6,24 +6,12 @@
 //
 
 import UIKit
+import Flutter
 
-class FLView: UIView {
-    
+
+class FLView: BaseCustomView{
+
     @IBOutlet weak var textLabel: UILabel!
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
-
-    }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-    }
-    
-   func setupView(){
-//        Bundle.main.loadNibNamed("FLView", owner: self, options: nil)
-    }
-
 }
