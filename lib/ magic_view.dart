@@ -40,7 +40,7 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
   }
 
   moveToiOSScreen() {
-    _channel?.invokeMethod("moveToNaviteScreen", "");
+    _channel?.invokeMethod("moveToNaviteScreen", "flutter");
   }
 
   @override
