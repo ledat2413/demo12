@@ -39,13 +39,14 @@ class FLNativeView: NSObject, FlutterPlatformView {
         viewIdentifier viewId: Int64,
         arguments args: Any?,
         binaryMessenger messenger: FlutterBinaryMessenger
+        
     ) {
         _view = FLView()
         self.messenger = messenger
         self.textUpdate = args as! String
         super.init()
         self.createChannel(binaryMessenger: messenger)
-//        createNativeView(view: _view)
+        //        createNativeView(view: _view)
         
     }
     
@@ -55,38 +56,40 @@ class FLNativeView: NSObject, FlutterPlatformView {
     
     func createChannel(binaryMessenger messenger: FlutterBinaryMessenger){
         let channel = FlutterMethodChannel(name: "methodDat", binaryMessenger: messenger )
-
+        
+        channel.setMethodCallHandler({
+            (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+            switch call.method {
+            case "moveToNaviteScreen":
+                self.presentView()
+                break
+                
+            default:
+                break
+            }
+        })
     }
     
-
-    func createNativeView(view _view: UIView){
-//        let flView = FLView()
+    
+    func presentView(){
+        let viewController = UIApplication.shared.keyWindow?.rootViewController
+        
+        let vc =  UIStoryboard.init(name: "UIStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "DemoViewController") as! DemoViewController
+        vc.modalPresentationStyle = .fullScreen
+        viewController?.present(vc, animated: true, completion: nil)
+        
+    }
+    
 //
-//        _view.addSubview(flView)
-        //        _view.backgroundColor = UIColor.white
-        //        let nativeLabel = UILabel()
-        //        nativeLabel.text = textUpdate
-        //        nativeLabel.textColor = UIColor.red
-        //        nativeLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        //        nativeLabel.textAlignment = .center
-        //        nativeLabel.font = UIFont(name: "", size: 20)
-        //        nativeLabel.frame = CGRect(x: 120, y:  200, width: 180, height: 48.0)
-        //
-        //        let nativeButton = UIButton()
-        //
-        //        nativeButton.backgroundColor = .gray
-        //        nativeButton.setTitle("Send text to Flutter", for: .normal)
-        //        nativeButton.titleLabel?.textColor = .white
-        //        nativeButton.titleLabel?.textAlignment = .center
-        //        nativeButton.frame = CGRect(x: 100, y: 50,width:200, height: 30)
-        //        nativeButton.addTarget(self, action: #selector(getText), for: .touchUpInside)
-        //
-        //        _view.addSubview(nativeButton)
-        //        _view.addSubview(nativeLabel)
-    }
-    
-    @objc func getText(){
-        let channel = FlutterMethodChannel(name: "methodDat", binaryMessenger: messenger)
-        channel.invokeMethod("sendFromNative", arguments: "Text update from native")
-    }
+//    func pushView(){
+//        var windows = UIApplication.shared.keyWindow
+//        windows = UIWindow(frame: UIScreen.main.bounds)
+//        let nav1 = UINavigationController()
+//        let mainView = DemoViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
+//        nav1.viewControllers = [mainView]
+//        windows?.rootViewController = nav1
+//        windows?.makeKeyAndVisible()
+//        let vc =  UIStoryboard.init(name: "UIStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "DemoViewController") as! DemoViewController
+//        nav1.pushViewController(vc, animated: false)
+//    }
 }

@@ -10,6 +10,7 @@ import Foundation
 public class NativeViewPlugin {
  class func register(with registrar: FlutterPluginRegistrar) {
    let viewFactory = FLNativeViewFactory(messenger: registrar.messenger())
+    
    registrar.register(viewFactory, withId: "native-view")
  }
 }

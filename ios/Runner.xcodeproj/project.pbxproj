@@ -15,6 +15,7 @@
 		4F25CE54278EB8D100845F23 /* UIStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F25CE53278EB8D100845F23 /* UIStoryboard.storyboard */; };
 		4F25CE56278EB8F800845F23 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25CE55278EB8F800845F23 /* DemoViewController.swift */; };
 		4F409610278C180C007CE9CE /* NativePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F40960F278C180C007CE9CE /* NativePlugin.swift */; };
+		4F51742C2791203E002DC614 /* FuncClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51742B2791203E002DC614 /* FuncClass.swift */; };
 		4FA74AB32786E4760024BC27 /* FLNativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA74AB22786E4760024BC27 /* FLNativeView.swift */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		4F25CE53278EB8D100845F23 /* UIStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UIStoryboard.storyboard; sourceTree = "<group>"; };
 		4F25CE55278EB8F800845F23 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		4F40960F278C180C007CE9CE /* NativePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativePlugin.swift; sourceTree = "<group>"; };
+		4F51742B2791203E002DC614 /* FuncClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncClass.swift; sourceTree = "<group>"; };
 		4FA74AB22786E4760024BC27 /* FLNativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLNativeView.swift; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				4F25CE51278EB51300845F23 /* BaseCustomView.swift */,
 				4F25CE53278EB8D100845F23 /* UIStoryboard.storyboard */,
 				4F25CE55278EB8F800845F23 /* DemoViewController.swift */,
+				4F51742B2791203E002DC614 /* FuncClass.swift */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				4F25CE52278EB51300845F23 /* BaseCustomView.swift in Sources */,
 				4FA74AB32786E4760024BC27 /* FLNativeView.swift in Sources */,
+				4F51742C2791203E002DC614 /* FuncClass.swift in Sources */,
 				4F25CE56278EB8F800845F23 /* DemoViewController.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
 				4F409610278C180C007CE9CE /* NativePlugin.swift in Sources */,

@@ -12,7 +12,7 @@
         <!--Demo View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="DemoViewController" customModule="Runner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DemoViewController" id="Y6W-OH-hqX" customClass="DemoViewController" customModule="Runner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,12 +26,37 @@
                                 <color key="textColor" systemColor="systemGreenColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkk-wJ-FVT">
+                                <rect key="frame" x="150" y="535.5" width="114" height="31"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Shf-Ij-a6e"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Close Screen">
+                                            <attributes>
+                                                <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="closeScreenButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="e8i-5v-xbo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Qkk-wJ-FVT" secondAttribute="trailing" constant="150" id="6Q1-ca-pvv"/>
+                            <constraint firstItem="Qkk-wJ-FVT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="150" id="AZi-iF-Kj7"/>
                             <constraint firstItem="x6Y-g4-Ovi" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="T5A-zB-0X0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="x6Y-g4-Ovi" secondAttribute="trailing" constant="100" id="Vxp-we-6ly"/>
+                            <constraint firstItem="Qkk-wJ-FVT" firstAttribute="top" secondItem="x6Y-g4-Ovi" secondAttribute="bottom" constant="50" id="WEx-qe-HHh"/>
                             <constraint firstItem="x6Y-g4-Ovi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="bYw-So-Exs"/>
                         </constraints>
                     </view>
@@ -39,25 +64,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926.08695652173924" y="67.633928571428569"/>
+            <point key="canvasLocation" x="2746.376811594203" y="67.633928571428569"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="tLS-F6-qL4">
+        <scene sceneID="WR1-JI-Ted">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cXO-Z1-gLO" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kna-z1-Mzt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Dq-O8-3il">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3XC-4y-T3D">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="wAV-Td-9HX"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="fsL-cQ-e3D"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="64A-Ea-Hpq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RWP-lf-czr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15.942028985507248" y="67.633928571428569"/>
+            <point key="canvasLocation" x="1836.2318840579712" y="67.633928571428569"/>
         </scene>
     </scenes>
     <resources>
@@ -66,6 +91,12 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
