@@ -16,8 +16,10 @@ class NativeViewWidget extends StatefulWidget {
 class _NativeViewWidgetState extends State<NativeViewWidget> {
   Map<String, dynamic> creationParams = <String, dynamic>{};
   String _text = 'Flutter screen';
-
+  String _batteryLevel = 'Unknown battery level.';
   MethodChannel? _channel;
+
+  static const platform = MethodChannel("dungChanel");
 
   _NativeViewWidgetState() {
     _channel = const MethodChannel('methodDat');
@@ -37,6 +39,22 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
       default:
         break;
     }
+  }
+
+  Future<void> _getBatteryLevel() async {
+    String batteryLevel;
+    try {
+      final int result = await platform.invokeMethod('getBatteryLevel');
+      batteryLevel = 'Battery level at $result%.';
+      print(batteryLevel);
+    } on PlatformException catch (e) {
+      batteryLevel = "Failed to get battery level: '${e.message}'";
+      print(batteryLevel);
+    }
+
+    setState(() {
+      _batteryLevel = batteryLevel;
+    });
   }
 
   moveToiOSScreen() {
@@ -60,13 +78,18 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
             children: [
               Text(_text,
                   style: const TextStyle(color: Colors.red, fontSize: 18)),
-              TextButton(
+              ElevatedButton(
                   onPressed: () {
                     moveToiOSScreen();
                   },
                   child: const Text('Move to Native Screen',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)))
+                      style: TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold))),
+              ElevatedButton(
+                child: const Text('Get Battery Level'),
+                onPressed: _getBatteryLevel,
+              ),
+              Text(_batteryLevel,style: TextStyle(color: Colors.white),),
             ],
           ),
         ),
