@@ -3,9 +3,11 @@ import UIKit
 
 class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
     private var messenger: FlutterBinaryMessenger
+    private var channel: FlutterMethodChannel
     
-    init(messenger: FlutterBinaryMessenger) {
+    init(channel: FlutterMethodChannel,messenger: FlutterBinaryMessenger) {
         self.messenger = messenger
+        self.channel = channel
         super.init()
     }
     
@@ -16,9 +18,9 @@ class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
     ) -> FlutterPlatformView {
         print("arguments \(String(describing: args))")
         if let argument = args as? Dictionary<String,Any>{
-            return FLNativeView(frame: frame, viewIdentifier: viewId, arguments: argument["viewType"], binaryMessenger: messenger)
+            return FLNativeView(frame: frame, viewIdentifier: viewId, arguments: argument["viewType"], binaryMessenger: messenger, channel: channel)
         }else {
-            return FLNativeView(frame: frame, viewIdentifier: viewId, arguments: args, binaryMessenger: messenger)
+            return FLNativeView(frame: frame, viewIdentifier: viewId, arguments: args, binaryMessenger: messenger, channel: channel)
         }
     }
     
@@ -38,14 +40,15 @@ class FLNativeView: NSObject, FlutterPlatformView {
         frame: CGRect,
         viewIdentifier viewId: Int64,
         arguments args: Any?,
-        binaryMessenger messenger: FlutterBinaryMessenger
+        binaryMessenger messenger: FlutterBinaryMessenger,
+        channel: FlutterMethodChannel
         
     ) {
         _view = FLView()
         self.messenger = messenger
         self.textUpdate = args as! String
         super.init()
-        self.createChannel(binaryMessenger: messenger)
+        self.createChannel(channel: channel, binaryMessenger: messenger)
         //        createNativeView(view: _view)
         
     }
@@ -54,8 +57,7 @@ class FLNativeView: NSObject, FlutterPlatformView {
         return _view
     }
     
-    func createChannel(binaryMessenger messenger: FlutterBinaryMessenger){
-        let channel = FlutterMethodChannel(name: "methodDat", binaryMessenger: messenger )
+    func createChannel(channel: FlutterMethodChannel,binaryMessenger messenger: FlutterBinaryMessenger){
         
         channel.setMethodCallHandler({
             (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
@@ -80,16 +82,5 @@ class FLNativeView: NSObject, FlutterPlatformView {
         
     }
     
-//
-//    func pushView(){
-//        var windows = UIApplication.shared.keyWindow
-//        windows = UIWindow(frame: UIScreen.main.bounds)
-//        let nav1 = UINavigationController()
-//        let mainView = DemoViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
-//        nav1.viewControllers = [mainView]
-//        windows?.rootViewController = nav1
-//        windows?.makeKeyAndVisible()
-//        let vc =  UIStoryboard.init(name: "UIStoryboard", bundle: Bundle.main).instantiateViewController(withIdentifier: "DemoViewController") as! DemoViewController
-//        nav1.pushViewController(vc, animated: false)
-//    }
+    
 }

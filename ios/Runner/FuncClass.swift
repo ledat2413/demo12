@@ -7,6 +7,10 @@
 
 import Foundation
 
-class FunctionClass() {
+public class FuncClass: NSObject{
+    func countNumber(a: Int, b: Int) -> Int {
+        let c = a + b
+        return c
+    }
     
 }

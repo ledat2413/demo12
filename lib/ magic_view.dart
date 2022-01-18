@@ -17,13 +17,13 @@ class NativeViewWidget extends StatefulWidget {
 class _NativeViewWidgetState extends State<NativeViewWidget> {
   Map<String, dynamic> creationParams = <String, dynamic>{};
   String _text = 'Flutter screen';
-  String _batteryLevel = 'Unknown battery level.';
+  String _batteryLevel = 'Unknown counter number.';
   MethodChannel? _channel;
 
   static const platform = MethodChannel("dungChanel");
 
   _NativeViewWidgetState() {
-    _channel = const MethodChannel('methodDat');
+    _channel = const MethodChannel('DatChanel');
     _channel?.setMethodCallHandler(_handleMethod);
     creationParams["viewType"] = "iOS Screen";
   }
@@ -37,24 +37,25 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
           _text = text;
         });
         break;
+
       default:
         break;
     }
   }
 
   Future<void> _getBatteryLevel() async {
-    String batteryLevel;
+    String countNumber;
     try {
-      final int result = await platform.invokeMethod('getBatteryLevel');
-      batteryLevel = 'Battery level at $result%.';
-      print(batteryLevel);
+      final int result = await platform.invokeMethod('getCountNumber');
+      countNumber = 'Count number is: $result';
+      print(countNumber);
     } on PlatformException catch (e) {
-      batteryLevel = "Failed to get battery level: '${e.message}'";
-      print(batteryLevel);
+      countNumber = "Failed to get count number: '${e.message}'";
+      print(countNumber);
     }
 
     setState(() {
-      _batteryLevel = batteryLevel;
+      _batteryLevel = countNumber;
     });
   }
 
@@ -87,10 +88,16 @@ class _NativeViewWidgetState extends State<NativeViewWidget> {
                       style: TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold))),
               ElevatedButton(
-                child: const Text('Get Battery Level'),
+                child: const Text('Get Count Number'),
                 onPressed: _getBatteryLevel,
               ),
-              Text(_batteryLevel,style: TextStyle(color: Colors.white),),
+              Text(
+                _batteryLevel,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
             ],
           ),
         ),
